@@ -1,4 +1,4 @@
-# How to setup environment in Visual Studio for Maya API
+# How to setup environment in Visual Studio for Maya C++ API
 
 ## Variablies Definition
 
@@ -10,7 +10,7 @@
 
 ## Release
 
-#### General in Release
+### General in Release
 
 + Configuration Type : DynamicLibrary
 
@@ -56,10 +56,10 @@ Bits64_
 
 >Foundation.lib  
 OpenMaya.lib  
-(optional)OpenMayaAnim.lib  
-(optional)OpenMayaFX.lib  
-(optional)OpenMayaRender.lib  
-(optional)OpenMayaUI.lib  
+(optional) OpenMayaAnim.lib  
+(optional) OpenMayaFX.lib  
+(optional) OpenMayaRender.lib  
+(optional) OpenMayaUI.lib  
 
 + Advanced -> Randomized Base Address : No (/DYNAMICBASE:NO)
 
@@ -69,7 +69,7 @@ OpenMaya.lib
 
 ## Debug
 
-#### General in Debug
+### General in Debug
 
 + Configuration Type : DynamicLibrary
 
@@ -85,7 +85,7 @@ OpenMaya.lib
 
 + Optimization -> Optimization : Disabled (/Od)
 
-+ Preprocessor -> PreprocessorDefinitions  
++ Preprocessor -> PreprocessorDefinitions :
 
 >\_DEBUG  
 WIN32  
@@ -111,14 +111,14 @@ Bits64_
 
 + General -> Additional Library Directories : $(MayaInstallationPath)\lib
 
-+ Input -> Additional Dependencies :  
++ Input -> Additional Dependencies :
 
 > Foundation.lib  
 OpenMaya.lib  
-(optional)OpenMayaAnim.lib  
-(optional)OpenMayaFX.lib  
-(optional)OpenMayaRender.lib  
-(optional)OpenMayaUI.lib  
+(optional) OpenMayaAnim.lib  
+(optional) OpenMayaFX.lib  
+(optional) OpenMayaRender.lib  
+(optional) OpenMayaUI.lib  
 
 + Advanced -> Randomized Base Address : No (/DYNAMICBASE:NO)
 
