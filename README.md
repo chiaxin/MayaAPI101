@@ -36,6 +36,14 @@ Python Maya API 相關
 
 相關截圖
 
-### [Qt](./Qt)
+### [Qt](./Qt/)
 
 Qt Gui 相關資料
+
+### [cpp](./cpp/)
+
+Maya cpp API
+
+### [others](./others/)
+
+C++, .NET, Python 以外的技術細節
