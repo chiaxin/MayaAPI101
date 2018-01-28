@@ -1,16 +1,16 @@
-# How to write a Qt Gui in Maya API use visual studio
+# How to write a Qt Gui in Maya API use Visual Studio
 
 ## Step 0. Prepare libraries & tools
 
-## Step 0-1. Build Qt 5 library for Maya 2017
+### Step 0-1. Build Qt 5 library for Maya 2017
 
 + [The details please see this document](./build_qt5.6.1_Maya2017.md)
 
-## Step 0-2. Install Visual Studio Qt Add-in
+### Step 0-2. Install Visual Studio Qt Add-in
 
 + [Visual Studio add-in](https://download.qt.io/official_releases/vsaddin/)
 
-## Step 0-3. Setup Maya API environment & links
+### Step 0-3. Setup Maya API environment & links
 
 + [The details please see this document](../vscpp_settings.md)
 
@@ -258,6 +258,8 @@ MStatus uninitializePlugin(MObject obj)
 
 ---
 
+## Additional
+
 + I use Visual Studio 2012 community with QT5 (QT 5.6.1).
 + This example just for 2017 or upper(Maya 2017 supported QT 5).
-+ This example is just for Windows OS.
++ This example is just in Windows OS.

@@ -1,6 +1,10 @@
 # How to setup environment in Visual Studio for Maya C++ API
 
-## Variablies Definition
+## Visual Studio Suggestion
+
+Visual Studio 2012 update 5
+
+## Variable Definition
 
 + $(MayaInstallationPath) : Your Maya installation directory
 
@@ -8,88 +12,111 @@
 
 ## Configuration
 
-## Release
+### [Release]
 
-### General in Release
+#### General in Release
 
 + Configuration Type : Dynamic Library
 
 + Target Ext : .mll
 
-### C/C++ in Release
+#### C/C++ in Release
 
-+ General -> Additional Include Directories : $(MayaInstallationPath)\include
++ General -> [Additional Include Directories : $(MayaInstallationPath)\include](https://msdn.microsoft.com/en-us/library/hhzbb5c8(v=vs.110).aspx)
++ General -> [DebugInformationFormat : ProgramDatabase (/Zi)](https://msdn.microsoft.com/en-us/library/958x11bc(v=vs.110).aspx)
++ General -> [Warning Level : Level3 (/W3)](https://msdn.microsoft.com/en-us/library/thxezb7y(v=vs.110).aspx)
++ Optimization -> [Optimization : Maximize Speed (/O2)](https://msdn.microsoft.com/en-us/us-en/library/8f8h5cxt(v=vs.110).aspx)
++ Preprocessor -> [PreprocessorDefinitions (add below)](https://msdn.microsoft.com/en-us/library/hhzbb5c8(v=vs.110).aspx)
 
-+ General -> DebugInformationFormat : ProgramDatabase (/Zi)
+NDEBUG</br>
+WIN32</br>
+\_WINDOWS</br>
+\_USRDLL</br>
+NT\_PLUGIN</br>
+\_HAS\_ITERATOR\_DEBUGGING=0</br>
+\_SECURE\_SCL=0</br>
+\_SECURE\_SCL\_THROWS=0</br>
+\_SECURE\_SCL\_DEPRECATE=0</br>
+\_CRT\_SECURE\_NO\_DEPRECATE</br>
+TBB\_USE\_DEBUG=0</br>
+\_\_TBB\_LIB_NAME=tbb.lib</br>
+REQUIRE\_IOSTREAM</br>
+AW\_NEW\_IOSTREAMS</br>
+Bits64\_
 
-+ General -> Warning Level : Level3 (/W3)
++ Code Generation -> [RuntimeLibrary : Multi-threaded DLL (/MD)](https://msdn.microsoft.com/en-us/library/2kzt1wy3(v=vs.110).aspx)
++ Code Generation -> [Enable String Pooling : True](https://msdn.microsoft.com/en-us/library/s0s0asdt(v=vs.110).aspx)
 
-+ Optimization -> Optimization : Maximize Speed (/O2)
+#### Linker in Release
 
-+ Preprocessor -> PreprocessorDefinitions (add below)
++ General -> [Additional Library Directories : $(MayaInstallationPath)\lib](https://msdn.microsoft.com/en-us/library/ee855621(v=vs.110).aspx)
++ Input -> [Additional Dependencies (add below)](https://msdn.microsoft.com/en-us/library/1xhzskbe(v=vs.110).aspx)
 
-  + NDEBUG WIN32 \_WINDOWS \_USRDLL NT_PLUGIN \_HAS_ITERATOR_DEBUGGING=0 \_SECURE_SCL=0  \_SECURE_SCL_THROWS=0  \_SECURE_SCL_DEPRECATE=0  \_CRT_SECURE_NO_DEPRECATE  TBB_USE_DEBUG=0  \_\_TBB_LIB_NAME=tbb.lib REQUIRE_IOSTREAM AW_NEW_IOSTREAMS Bits64_
+Foundation.lib</br>
+OpenMaya.lib</br>
+OpenMayaAnim.lib (optional)</br>
+OpenMayaFX.lib (optional)</br>
+OpenMayaRender.lib (optional)</br>
+OpenMayaUI.lib (optional)
 
-+ Code Generation -> RuntimeLibrary : Multi-threaded DLL (/MD)
-
-+ Code Generation -> Enable String Pooling : True
-
-### Linker in Release
-
-+ General -> Additional Library Directories : $(MayaInstallationPath)\lib
-
-+ Input -> Additional Dependencies (add below)
-
-  + Foundation.lib<br>OpenMaya.lib<br>(optional) OpenMayaAnim.lib<br>(optional) OpenMayaFX.lib<br>(optional) OpenMayaRender.lib<br>(optional) OpenMayaUI.lib
-
-+ Advanced -> Randomized Base Address : No (/DYNAMICBASE:NO)
-
++ Advanced -> [Randomized Base Address : No (/DYNAMICBASE:NO)](https://msdn.microsoft.com/en-us/library/bb384887(v=vs.110).aspx)
 + Command Line -> Additional Options : /export:initializePlugin /export:uninitializePlugin
 
 ---
 
-## Debug
+### [Debug]
 
-### General in Debug
+#### General in Debug
 
 + Configuration Type : DynamicLibrary
 
 + Target Ext : .mll
 
-### C/C++ in Debug
+#### C/C++ in Debug
 
-+ General -> Additional Include Directories : $(MayaInstallationPath)\include
++ General -> [Additional Include Directories : $(MayaInstallationPath)\include](https://msdn.microsoft.com/en-us/library/73f9s62w(v=vs.110).aspx)
++ General -> [DebugInformationFormat : ProgramDatabase (/Zi)](https://msdn.microsoft.com/en-us/library/958x11bc(v=vs.110).aspx)
++ General -> [Warning Level : Level3 (/W3)](https://msdn.microsoft.com/en-us/library/thxezb7y(v=vs.110).aspx)
++ Optimization -> [Optimization : Disabled (/Od)](https://msdn.microsoft.com/en-us/us-en/library/8f8h5cxt(v=vs.110).aspx)
++ Preprocessor -> [PreprocessorDefinitions (add below)](https://msdn.microsoft.com/en-us/library/hhzbb5c8(v=vs.110).aspx)
 
-+ General -> DebugInformationFormat : ProgramDatabase (/Zi)
+\_DEBUG</br>
+WIN32</br>
+\_WINDOWS</br>
+\_USRDLL</br>
+NT\_PLUGIN</br>
+\_HAS\_ITERATOR\_DEBUGGING=0</br>
+\_SECURE\_SCL=0</br>
+\_SECURE\_SCL\_THROWS=0</br>
+\_SECURE\_SCL\_DEPRECATE=0</br>
+\_CRT\_SECURE\_NO\_DEPRECATE</br> TBB\_USE\_DEBUG=0</br>
+\_\_TBB\_LIB\_NAME=tbb.lib</br>
+REQUIRE\_IOSTREAM</br>
+AW\_NEW\_IOSTREAMS</br>
+Bits64\_
 
-+ General -> Warning Level : Level3 (/W3)
++ Code Generation -> [RuntimeLibrary : Multi-threaded Debug DLL (/MDd)](https://msdn.microsoft.com/en-us/library/2kzt1wy3(v=vs.110).aspx)
++ Code Generation -> [Enable String Pooling : True](https://msdn.microsoft.com/en-us/library/s0s0asdt(v=vs.110).aspx)
 
-+ Optimization -> Optimization : Disabled (/Od)
+#### Linker in Debug
 
-+ Preprocessor -> PreprocessorDefinitions (add below)
++ General -> [Additional Library Directories : $(MayaInstallationPath)\lib](https://msdn.microsoft.com/en-us/library/ee855621(v=vs.110).aspx)
++ Input -> [Additional Dependencies (add below)](https://msdn.microsoft.com/en-us/library/1xhzskbe(v=vs.110).aspx)
 
-  + \_DEBUG<br>WIN32<br>\_WINDOWS<br>\_USRDLL<br>NT_PLUGIN<br>\_HAS_ITERATOR_DEBUGGING=0  \_SECURE_SCL=0<br>\_SECURE_SCL_THROWS=0<br>\_SECURE_SCL_DEPRECATE=0<br>\_CRT_SECURE_NO_DEPRECATE  TBB_USE_DEBUG=0<br>\_\_TBB_LIB_NAME=tbb.lib<br>REQUIRE_IOSTREAM<br>AW_NEW_IOSTREAMS<br>Bits64_
+Foundation.lib</br>
+OpenMaya.lib</br>
+OpenMayaAnim.lib (optional)</br>
+OpenMayaFX.lib (optional)</br>
+OpenMayaRender.lib (optional)</br>
+OpenMayaUI.lib (optional)
 
-+ Code Generation -> RuntimeLibrary : Multi-threaded Debug DLL (/MDd)
-
-+ Code Generation -> Enable String Pooling : True
-
-### Linker in Debug
-
-+ General -> Additional Library Directories : $(MayaInstallationPath)\lib
-
-+ Input -> Additional Dependencies (add below)
-
-  + Foundation.lib<br>OpenMaya.lib<br>(optional) OpenMayaAnim.lib<br>(optional) OpenMayaFX.lib<br>(optional) OpenMayaRender.lib<br>(optional) OpenMayaUI.lib
-
-+ Advanced -> Randomized Base Address : No (/DYNAMICBASE:NO)
-
++ Advanced -> [Randomized Base Address : No (/DYNAMICBASE:NO)](https://msdn.microsoft.com/en-us/library/bb384887(v=vs.110).aspx)
 + Command Line -> Additional Options : /export:initializePlugin /export:uninitializePlugin
 
 ---
 
-## Additional (Helper)
+### Additional (Helper)
 
-### Copy .mll file to your plug-in folder after build.
+#### Copy .mll file to your plug-in folder after build
 
-+ Build Events -> Post-Build Eevnt : xcopy /Y "$(TargetPath)" "$(MayaPluginPath)"
++ Build Events -> Post-Build Event : xcopy /Y "$(TargetPath)" "$(MayaPluginPath)"

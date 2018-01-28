@@ -1,4 +1,4 @@
-# Trobleshooting
+# Trobleshoots
 
 ## 1. Debug
 

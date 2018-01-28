@@ -2,13 +2,13 @@
 
 ## Module Folder Structure
 
-+ /bin      : dll(dynmatic libraries) or exe(execute file)
++ /bin      : dll(dynamic libraries) or exe(execute file)
 + /devkit   : All any source that provide API to user
 + /docs     : Documents
-+ /icons    : Images for Maya plug-in or UI (user interface)
++ /icons    : Images for Maya plug-ins or UI (user interface)
 + /include  : All header file that provide interface to user
 + /lib      : All lib(libraries) file
-+ /plug-ins : mll (Maya Plug-in format)
++ /plug-ins : mll (Maya Plug-in)
 + /presets  : Maya presets
 + /resources: Resources
 + /scripts  : All mel or python scripts, include AETemplate file
