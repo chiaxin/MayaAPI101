@@ -1,4 +1,4 @@
-# --
+# Dotnet Command
 
 ## Commands
 
@@ -14,6 +14,7 @@
 
 ```csharp
 [assembly: MPxCommandClass(typeof(MayaNetTest.WhatIsCmd), "netWhatIs")]
+
 namespace MayaNetTest
 {
     public class WhatIsCmd : MPxCommand, IMPxCommand
@@ -30,7 +31,7 @@ namespace MayaNetTest
 
 [MPxCommandSyntaxArg(typeof(ArgType))]
 
-+ MPxCommandSyntexArg : This attribute ensures that this argument is added to the syntax.
++ MPxCommandSyntaxArg : This attribute ensures that this argument is added to the syntax.
 
 + ArgType : The type of the argument (for example : System.String)
 

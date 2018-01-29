@@ -34,7 +34,7 @@ private:
 ```
 
 + All API command would be inherit from `MPxCommand` in `MPxCommand.h`.</br>
-  所有的 API command 都必須繼承自 `MPxCommand` 從 `MPxCommand.h`。
+  API command 都必須繼承自 `MPxCommand` 從 `MPxCommand.h`。
 
 ```cpp
 #include <maya/MPxCommand.h>

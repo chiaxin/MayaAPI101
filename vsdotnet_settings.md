@@ -1,10 +1,20 @@
 # How to setup environment in Visual Studio for Maya .NET(C#) API
 
+## Limits
+
++ Maya .NET SDK is available in 64-bit only
++ The version must upper than Maya 2013 Extension 2
++ .NET 4.5 Framework or .NET 4.0 Framework
+
+## Recommended
+
++ Visual Studio 2012 with .NET 4.5 Framework
+
 ## Extension
 
 + Maya .NET API extension is .nll.dll
 
-## Variablies
+## Variables
 
 + $(MayaInstallationPath) : Your Maya installation directory
 
@@ -12,23 +22,24 @@
 
 ## Project Settings
 
-+ Start from C# Class Library
++ Start from C# Class Library</br>
+  Other Languages -> Visual C# -> `Class Library`
 
   ![New Project](/images/dotnet/dotnet_new_project.png)
 
-+ Application -> Output type : Class Library
++ Solution Properties `(Alt + Enter)` -> Reference Paths -> add `$(MayaInstallationPath)/bin`
 
-+ Reference Paths -> add $(MayaInstallationPath)/bin
+  ![Add New Reference Paths](/images/dotnet/add_new_reference_paths.png)
+
++ Solution Explorer -> References -> Add Reference</br>
+  Extensions -> Check `openmayacs`
 
   ![openmayacs](/images/dotnet/openmayacs.png)
 
-+ Build Events \ Post-build event command line -> copy /Y "$(TargetPath)" "$(MayaPluginPath)\$(TargetName).nll.dll"
++ Solution Properties `(Alt + Enter)` -> Build Events -> Post-build event command line</br>
+  -> copy /Y "$(TargetPath)" "$(MayaPluginPath)\$(TargetName).nll.dll"
 
-## Reference
-
-+ Extensions -> check openmayacs
-
-## using at head
+## using `OpenMaya` at head
 
 ```csharp
 using Autodesk.Maya.OpenMaya;
