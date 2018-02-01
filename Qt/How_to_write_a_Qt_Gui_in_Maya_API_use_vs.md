@@ -136,7 +136,7 @@ MainWindow::MainWindow(QWidget * parent):
     this->setFixedSize(QSize(360, 240));
     QVBoxLayout * ptr_layout = new QVBoxLayout;
     ptr_layout->addWidget(new QLabel("Hello World"));
-    ptr\_layout->addWidget(ptr_button);
+    ptr_layout->addWidget(ptr_button);
     this->setLayout(ptr_layout);
     // Do Qt connections
     connect(
@@ -252,7 +252,7 @@ MStatus uninitializePlugin(MObject obj)
 }
 ```
 
-### Step 4. Complie, Loading in Maya, Launch
+### Step 4. Compile, Loading in Maya, Launch
 
 ![loading_launch](../images/QT/loading_launch.PNG)
 

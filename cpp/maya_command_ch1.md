@@ -1,8 +1,8 @@
-# Maya Command 1
+# Maya Command Chapter 1
 
-## Inherit MPxCommand
+## Create a Custom Command
 
-listSelectionsCmd.h
+In `listSelectionsCmd.h`
 
 ```cpp
 #ifndef _LIST_SELECTIONS_CMD_H
@@ -34,7 +34,7 @@ private:
 ```
 
 + All API command would be inherit from `MPxCommand` in `MPxCommand.h`.</br>
-  API command 都必須繼承自 `MPxCommand` 從 `MPxCommand.h`。
+  Maya API command 都必須繼承自 `MPxCommand` 從 `MPxCommand.h`。
 
 ```cpp
 #include <maya/MPxCommand.h>
@@ -42,5 +42,6 @@ private:
 class ListSelectionsCmd : public MPxCommand
 ```
 
-+ The class convention is topper-case in first class character.</br>
-  習慣上 C++ class 的命名都會以大寫開頭。
++ The convention is topper-case in first character, and `Cmd` suffix.</br>
+  習慣上 Command Class 命名都會以大寫開頭，以 `Cmd` 結尾。</br>
+  [Check Detail](../Maya_API_naming_conventions.md)

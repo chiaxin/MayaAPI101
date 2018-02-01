@@ -17,7 +17,6 @@
 ## Variables
 
 + $(MayaInstallationPath) : Your Maya installation directory
-
 + $(MayaPluginPath) : Your Maya plug-ins directory
 
 ## Project Settings

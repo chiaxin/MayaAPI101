@@ -6,7 +6,7 @@
 
 ## Exceptions instead of MStatus failure codes
 
-## Useage of IEnumerable\<T>
+## Usage of IEnumerable\<T>
 
 ## Support for .NET collections
 

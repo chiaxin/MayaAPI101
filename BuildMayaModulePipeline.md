@@ -15,7 +15,7 @@
 
 ## mod file
 
-### The *.mod file could be tell Maya where are module datas
+### The *.mod file could be tell Maya where are module's elements
 
 ```txt
 + LOCALE:en_US <plugin-name> <version> <location>
