@@ -1,49 +1,54 @@
 # Maya API 101
 
-## Develop your Maya plug-ins use Visual Studio
+## Develop your Maya plug-ins, modules, How to
 
 ## Architecture
 
-### [BuildMayaModulePipeline.md](./BuildMayaModulePipeline)
+### [Maya_Module_Pipeline.md](./Maya_Module_Pipeline.md)
 
-敘述建構一個完整的 Maya plug-in 需要的 data
+How to make a Maya module?</br>
+如何建構一個 Maya 的模組?
 
 ### [resources](./resources.md)
 
-列出有關於 Maya API 的參考資料或網站
+The all resources about Maya API</br>
+有關 Maya API 的參考資料或網站。
 
 ### [vscpp_settings.md](./vscpp_settings.md)
 
-有關於 Visual Studio 的環境設定
+About Visual Studio C++ settings in Maya API</br>
+Visual Studio C++ 的 Maya API 環境設定。
 
-### [vscpp_trobleshoots.md](./vscpp_trobleshoots.md)
+### [vscpp_troubleshoots.md](./vscpp_troubleshoots.md)
 
-使用 Visual Studio 建構 Maya API 會發生的問題
+The troubleshoots with Visual Studio in Maya API</br>
+紀錄 Visual Studio C++ 編譯 Maya API 上的問題。
 
 ### [vsdotnet_settings.md](./vsdotnet_settings.md)
 
-有關於 Visual Studio .NET 的環境設定
+About Visual Studio .NET settings in Maya API</br>
+Visual Studio .NET 的 Maya API 環境設定。
 
 ### [dotnet](./dotnet/)
 
-Visual Studio .NET 相關
+About Visual Studio .NET
 
 ### [python](./python/)
 
-Python Maya API 相關
+About Python Maya API
 
 ### [images](./images/)
 
-相關截圖
+All images.
 
 ### [Qt](./Qt/)
 
-Qt Gui 相關資料
+About Qt Gui Framework.
 
 ### [cpp](./cpp/)
 
-Maya cpp API
+About Maya C++ API.
 
 ### [others](./others/)
 
-C++, .NET, Python 以外的技術細節
+Other documents.
