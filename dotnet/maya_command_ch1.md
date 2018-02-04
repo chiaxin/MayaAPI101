@@ -1,4 +1,4 @@
-# Dotnet Maya Command Chapter 1
+# Maya Command Chapter 1
 
 ## Commands
 

@@ -60,8 +60,8 @@ Prefix by `"k"` (constant variable)
 
 | Suffix      |     Description         |
 | ----------- | ----------------------- |
-| SN          | The flag's short name    |
-| LN          | The flag's long name   |
+| SN          | The flag's short name   |
+| LN          | The flag's long name    |
 
 Example :
 

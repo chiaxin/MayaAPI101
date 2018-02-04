@@ -20,7 +20,7 @@ public:
     MStatus doIt(const MArgList &) override; // Do it method
 };
 
-#endif
+#endif /* _LIST_SELECTIONS_CMD_H */
 ```
 
 ### In `listSelectionsCmd.cpp`
@@ -160,7 +160,7 @@ public:
 + Finally, use `#endif` in the end to match previous `#ifndef`
 
 ```cpp
-#endif
+#endif /* _LIST_SELECTION_CMD_H */
 ```
 
 ## listSelectionCmd.cpp
@@ -180,7 +180,7 @@ public:
 const char * ListSelectionCmd::kCmdName = "listSelection";
 ```
 
-+ In this case, constructor and destructor would do nothing.
++ In this case, constructor and destructor does nothing.
 
 ```cpp
 ListSelectionCmd::ListSelectionCmd()
