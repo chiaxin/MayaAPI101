@@ -1,4 +1,4 @@
-# Register Maya Objects
+# Maya API cpp Plug-in register
 
 ## Plug-in Function
 
