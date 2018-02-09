@@ -1,4 +1,4 @@
-# Maya File Translator Chapter 1
+# Maya API cpp File Translator
 
 ## Derive from MPxFileTranslator
 
