@@ -18,7 +18,7 @@ Version : 4.18.1 (sip-4.18.1.tar.gz)
 
 ## Environment Setup Batch File
 
-```batch
+```bat
 @echo off
 
 set MAYAVERSION=2017
@@ -60,7 +60,7 @@ set LIB=%LIB%;%MAYA_LOCATION%\lib
 
 build-sip-maya2017.bat
 
-```batch
+```bat
 @echo off
 set XXX=%~dp0
 if ["%MAYAPYQTBUILD%"]==[""] call "%XXX%setup.bat"

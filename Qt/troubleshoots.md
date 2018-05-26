@@ -12,3 +12,6 @@
 
 + Please install visual studio extension called : `Disable No Source Available Tab`,</br>
   It could be ignore Maya's pdb if it not found.
+
+### 1-3. QWidget: Cannot create a QWidget without QApplication
+

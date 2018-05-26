@@ -194,8 +194,8 @@ MStatus MainWindowCmd::doIt(const MArgList & argList)
     // If the class instance is exists, Just to raise it.
     if ( qptr_mainwindow.isNull() )
     {
-        qptr\_mainwindow = new MainWindow(_GetMayaMainWindow());
-        qptr_mainwindow->show()
+        qptr_mainwindow = new MainWindow(_GetMayaMainWindow());
+        qptr_mainwindow->show();
     }
     else
     {

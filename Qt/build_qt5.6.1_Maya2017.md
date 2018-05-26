@@ -37,29 +37,27 @@ download : openssl-1.0.1l.tar.gz
 + Create a install folder example as `D:\Qt\Qt\_5.6.1_install`
 + Uncompress `Qt561ForMaya2017Update4.zip` into install folder
 + Uncompress icu\_53\_1\_msvc\_2012\_64\_devel.7z into `D:\Qt\icu53_1`
-+ Create a openssl folder example as `D:\Qt\openssl`
++ Create a openssl folder, for example such as `D:\Qt\openssl`
 + Uncompress openssl-1.0.1l.tar.gz into `D:\Qt\openssl_install`
 
 ## Compile openSSL
 
-+ create debug and release folder in `D:\Qt\openssl`
-+ From vs2012 start folder open `VS2012 x64 Native Tools Command Prompt`
-+ Key CD/D `D:\Qt\openssl_isntall` go to that folder
++ create debug and release folder into `D:\Qt\openssl`.
++ Open command prompt - `VS2012 x64 Native Tools Command Prompt`.
++ Key CD/D `D:\Qt\openssl_install` go to that folder.
 + Ready to build debug
-+ Key
 
+Key below
 ```batch
 perl configure debug-VC-WIN64A --prefix D:\Qt\openssl\debug no-asm
 ```
 
-+ Key
-
+Key below
 ```batch
 ms\do_win64a
 ```
 
-+ Key
-
+Key below (use a text-editor open file)
 ```batch
 notepad ms\nt.mak to open nt.mak file
 ```
@@ -89,12 +87,16 @@ perl configure VC-WIN64A --prefix=D:\Qt\openssl\release no-asm
 
 + Others same as debug
 
-## Compile Qt
+## Compile Qt Library
 
-+ From vs2012 start folder open `VS2012 x64 Native Tools Command Prompt`
-+ Key : CD/D D:\Qt\Qt\_5.6.1\_install\qt_adsk-5.6.1
-+ Do configure :
++ Open command prompt - `VS2012 x64 Native Tools Command Prompt`.
 
+Key (Go to directory) :
+```batch
+CD/D D:\Qt\Qt\_5.6.1\_install\qt_adsk-5.6.1
+```
+
+Key (Configure) :
 ```batch
 configure^
  -icu^
@@ -118,8 +120,7 @@ configure^
  -nomake tests
 ```
 
-+ Do nmake
-
+Key (Do nmake) :
 ```batch
 nmake install
 ```

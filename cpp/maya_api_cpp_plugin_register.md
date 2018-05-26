@@ -78,3 +78,35 @@ MStatus uninitializePlugin(MObject mobject)
     return stat;
 }
 ```
+
+## Register Dependency Node
+
+In the function `initializePlugin` :
+
+```cpp
+MStatus initializePlugin(MObject mobject)
+{
+    MStatus stat = MS::kSuccess;
+    MFnPlugin fnPlugin(mobject);
+    stat = fnPlugin.registerNode(
+        CustomNode::kNodeName,
+        CustomNode::id,
+        CustomNode::creator,
+        CustomNode::initialize,
+        MPxNode::kDependNode
+    );
+}
+```
+
+## Deregister Dependency Node
+
+In the function `uninitializePlugin` :
+
+```cpp
+MStatus uninitializePlugin(MObject mobject)
+{
+    MStatus stat = MS::kSuccess;
+    MFnPlugin fnPlugin(mobject);
+    stat = fnPlugin.deregisterNode(CustomNode::id);
+}
+```

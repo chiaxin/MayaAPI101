@@ -1,5 +1,39 @@
 # Maya API CPP Command Arguments
 
+## Strategy
+
+1. Use `MSyntax` object to add and define all flag and arguments you need.
+2. Register a new syntax object.
+3. Use `MArgDatabase` or `MArgParser` to analisys user arguments.
+
+### Flag Limited and Rules
+
+1. Use `MSyntax::addFlag` to add new flag with 3 arguments</br>
+   short name(brief name), long name and argument type.
+2. The flag short name less than 4 character.
+3. The flag long name gather than 3 character.
+4. A flag can be multi-usage, if you call `MSyntax::makeFlagMultiUse`.
+5. A flag can be receive 6 parameter at most, They can be difference type.
+6. The special flag -e (-edit) and -q (-query) enable them use `enableEdit` and `enableQuery`.
+
+### Arguments
+
+Define argument have TWO ways : `command argument` and `objects`.
+
+#### Command Arguments
+
+1. Use `MSyntax::addArg` to add a new command argument.
+
+#### Objects Arguments
+
+1. Use `MSyntax::setObjectType` to add a new command argument.
+2. It can be define minimum and maximum on number of objects.
+3. Pass `MSyntax::kStringObjects` enum it no check object exists in the scene</br>
+   and get it as `MStringArray`.
+4. Pass `MSyntax::kSelectionList` enum it can check object exists in the scene</br>
+   and get it as `MSelectionList`.
+5. Pass `MSyntax::kNone` enum it have no any parameter.
+
 ## Maya Command Structure
 
 command (-edit|-query) `-flag1 arg1 arg2 arg3` `-flag2 arg1 arg2 arg3` argument;
@@ -13,36 +47,40 @@ command (-edit|-query) `-flag1 arg1 arg2 arg3` `-flag2 arg1 arg2 arg3` argument;
 | argument  | That is a command argument at the end of command.     |
 
 + The flag can be multi-use if you set it to multi-usage.
-+ The flag argument can be multi-usage after the flag.
 
-## Register your `MSyntax` to define your flags
+## Register Custom `MSyntax` to Define Custom Flags
 
-### Use MSyntax::addFlag and MSyntax::addArg
+### Using MSyntax::addFlag and MSyntax::addArg
 
-`MSyntax::addFlag` can be add new flag in command.</br>
-We need specific its type in 3rd argument use MSyntax's enum.
+The `MSyntax::addFlag` can be add a new flag in command.</br>
+We need specific its type in 3rd argument by MSyntax's enum.</br>
+For example, We want to add a flag called "-f" and "-flag".</br>
+And it is a "string" type argument.
 
 ```cpp
-// For example
+// In new syntax method.
 stat = syntax.addFlag("-f", "-flag", MSyntax::kString);
 ```
 
-`MSyntax::addArg` can be add new argument in command.
+The `MSyntax::addArg` can be add a new argument in command.</br>
+We need specific its type by MSyntax's enum.
 
 ```cpp
-// For example
+// In new syntax method.
 stat = syntax.addArg(MSyntax::kString);
 ```
 
-### If you want make user selected objects to command argument
+### If You Want Make User Selected Objects to Command Argument
 
 ```cpp
+// In new syntax method.
 syntax.useSelectionAsDefault(true);
 ```
 
-And you can retrieve them from `MArgParser::getObjects`
+And you have to retrieve them from `MArgDatabase::getObjects`
 
 ```cpp
+// In parse method.
 MSelectionList selectionList;
 stat = parser.getObjects(selections);
 ```
@@ -55,14 +93,12 @@ MSyntax CustomCmd::newSyntax()
     MStatus stat = MS::kSuccess;
     MSyntax syntax;
     stat = syntax.addFlag("-a", "-argument", MSyntax::kString);
-    if (stat != MS::kSuccess)
-    {
+    if (stat != MS::kSuccess) {
         return syntax;
     }
     // Use MSyntax::makeFlagMultiUse(flag)
     stat = syntax.makeFlagMultiUse("-a");
-    if (stat != MS::kSuccess)
-    {
+    if (stat != MS::kSuccess) {
         return syntax;
     }
     return syntax
@@ -71,42 +107,38 @@ MSyntax CustomCmd::newSyntax()
 
 ## Parse your MArgList object
 
-in `CustomCmd::parseSyntax(const MArgList & argList)`
+In `CustomCmd::parseSyntax(const MArgList & argList)`
 
-### Use `MArgParser::numOfFlagUsed` to got how many specific flag used
+### Use `MArgDatabase::numOfFlagUsed` to Got How Many Specific Flag is Used
 
-For example :
-
-In this case, we wil get a integer "4".</br>
-Because we have 4 difference flags.
+For example :</br>
+In below case, we wil get a integer "4", because we have 4 difference flags.
 
 ```cpp
-    // In C++
-    unsigned int num_of_flag_used = parser.numOfFlagUsed();
+// In parse method
+unsigned int num_of_flag_used = parser.numOfFlagUsed();
 ```
 
 ```mel
-    // In MEL
-    command -flagA 1 -flagB 2 -flagC 3 -flagD 4;
+// In MEL
+command -flagA 1 -flagB 2 -flagC 3 -flagD 4;
 ```
 
-### Use `MArgParser::numOfFlagUses` to get how many flag arguments has been set
+### Use `MArgDatabase::numOfFlagUses` to Get How Many Flag Arguments Has Been Set
 
-__Attention : If you want use numOfFlagUses method to parse, You must set it is `multi-usage`__
+__Attention : If you want use numOfFlagUses method to parse, You must set it to `multi-usage`__
 
-For example :
-
-In this case, we will get a integer "3".</br>
-Because this flag is 3 times appears in command.
+For example :</br>
+In below case, we will get a integer "3". because this flag is 3 times appears in command.
 
 ```cpp
-    // In C++
-    unsigned int num_of_flag_uses = parser.numOfFlagUses("-flagA");
+// In parse method
+unsigned int num_of_flag_uses = parser.numOfFlagUses("-flagA");
 ```
 
 ```mel
-    // In MEL
-    command -flagA arg1 -flagA arg2 -flagA arg3;
+// In MEL
+command -flagA arg1 -flagA arg2 -flagA arg3;
 ```
 
 ## Get flag's arguments
@@ -174,7 +206,7 @@ command -flag abcdef "aaa";
 
 ### Other MArgParser and MArgDatabase methods
 
-`getFlagArgumentPosition` can be get the position of specific flag.
+The `getFlagArgumentPosition` can be get the position of specific flag.
 
 ```cpp
 // In cpp
@@ -203,27 +235,20 @@ MStatus CustomCmd::parseSyntax(const MArgList & argList)
 {
     MStatus stat = MS::kSuccess;
     MArgDatabase parser(syntax(), argList, &stat);
-    if (stat != MS::kSuccess)
-    {
+    if (stat != MS::kSuccess) {
         return stat;
     }
-    if (parser.isFlagSet("-a", &stat) && stat == MS::kSuccess)
-    {
+    if (parser.isFlagSet("-a", &stat) && stat == MS::kSuccess) {
         unsigned int num_flag_used = parser.numOfFlagUses("-a");
-        for (unsigned int i = 0 ; i < num_flag_used ; i++)
-        {
+        for (unsigned int i = 0 ; i < num_flag_used ; i++) {
             MArgList flag_arg_list;
             stat = parser.getFlagArgumentList("-a", i, flag_arg_list);
-            if (stat != MS::kSuccess)
-            {
+            if (stat != MS::kSuccess) {
                 MGlobal::displayError("Failed to get flag argument list : -a");
                 continue;
-            }
-            else
-            {
+            } else {
                 MString arg_str = flag_arg_list.asString(0, &stat);
-                if (stat == MS::kSuccess)
-                {
+                if (stat == MS::kSuccess) {
                     // Do something...
                 }
             }
