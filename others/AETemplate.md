@@ -1,6 +1,6 @@
 # AETemplate
 
-The AETemplate Mel file is a special script file for UI in attribute editor.</br>
+The AETemplate Mel file is a special script file for UI in attribute editor
 
 ## Naming Rules
 

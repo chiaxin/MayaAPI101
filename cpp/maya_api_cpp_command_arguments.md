@@ -8,7 +8,7 @@
 
 ### Flag Limited and Rules
 
-1. Use `MSyntax::addFlag` to add new flag with 3 arguments</br>
+1. Use `MSyntax::addFlag` to add new flag with 3 arguments  
    short name(brief name), long name and argument type.
 2. The flag short name less than 4 character.
 3. The flag long name gather than 3 character.
@@ -28,9 +28,9 @@ Define argument have TWO ways : `command argument` and `objects`.
 
 1. Use `MSyntax::setObjectType` to add a new command argument.
 2. It can be define minimum and maximum on number of objects.
-3. Pass `MSyntax::kStringObjects` enum it no check object exists in the scene</br>
+3. Pass `MSyntax::kStringObjects` enum it no check object exists in the scene  
    and get it as `MStringArray`.
-4. Pass `MSyntax::kSelectionList` enum it can check object exists in the scene</br>
+4. Pass `MSyntax::kSelectionList` enum it can check object exists in the scene  
    and get it as `MSelectionList`.
 5. Pass `MSyntax::kNone` enum it have no any parameter.
 
@@ -52,9 +52,9 @@ command (-edit|-query) `-flag1 arg1 arg2 arg3` `-flag2 arg1 arg2 arg3` argument;
 
 ### Using MSyntax::addFlag and MSyntax::addArg
 
-The `MSyntax::addFlag` can be add a new flag in command.</br>
-We need specific its type in 3rd argument by MSyntax's enum.</br>
-For example, We want to add a flag called "-f" and "-flag".</br>
+The `MSyntax::addFlag` can be add a new flag in command.  
+We need specific its type in 3rd argument by MSyntax's enum.  
+For example, We want to add a flag called "-f" and "-flag".  
 And it is a "string" type argument.
 
 ```cpp
@@ -62,7 +62,7 @@ And it is a "string" type argument.
 stat = syntax.addFlag("-f", "-flag", MSyntax::kString);
 ```
 
-The `MSyntax::addArg` can be add a new argument in command.</br>
+The `MSyntax::addArg` can be add a new argument in command.  
 We need specific its type by MSyntax's enum.
 
 ```cpp
@@ -111,7 +111,7 @@ In `CustomCmd::parseSyntax(const MArgList & argList)`
 
 ### Use `MArgDatabase::numOfFlagUsed` to Got How Many Specific Flag is Used
 
-For example :</br>
+For example -  
 In below case, we wil get a integer "4", because we have 4 difference flags.
 
 ```cpp
@@ -128,7 +128,7 @@ command -flagA 1 -flagB 2 -flagC 3 -flagD 4;
 
 __Attention : If you want use numOfFlagUses method to parse, You must set it to `multi-usage`__
 
-For example :</br>
+For example -  
 In below case, we will get a integer "3". because this flag is 3 times appears in command.
 
 ```cpp

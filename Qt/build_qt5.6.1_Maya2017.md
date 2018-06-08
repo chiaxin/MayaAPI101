@@ -27,8 +27,7 @@
 + [ICU_53_1 msvc 2012 x64](http://download.qt.io/development_releases/prebuilt/icu/prebuilt/msvc2012/)
   Download : icu\_53\_1\_msvc\_2012\_64\_devel.7z
 + [OpenSSL 1.0.1l](https://ftp.openssl.org/source/old/1.0.1/)
-
-download : openssl-1.0.1l.tar.gz
+  Download : openssl-1.0.1l.tar.gz
 
 ## Required Folders
 
@@ -48,30 +47,33 @@ download : openssl-1.0.1l.tar.gz
 + Ready to build debug
 
 Key below
+
 ```batch
 perl configure debug-VC-WIN64A --prefix D:\Qt\openssl\debug no-asm
 ```
 
 Key below
+
 ```batch
 ms\do_win64a
 ```
 
-Key below (use a text-editor open file)
+Key below (use a text-editor to open the file)
+
 ```batch
 notepad ms\nt.mak to open nt.mak file
 ```
 
 + Find `APP_CFLAG=xxx` and `LIB\_CFLAG=xxx` remove right be `APP\_CFLAG=` and `LIB\_CFLAG=`
 + Find `LFLAGS=xxx` and remove `/debug` at tail
-+ Save this file
-+ Key 
++ Save file
++ Key below
 
 ```batch
 nmake -f ms\nt.mak
 ```
 
-+ Key
+key below
 
 ```batch
 nmake -f ms\nt.mak install
@@ -79,24 +81,26 @@ nmake -f ms\nt.mak install
 
 + Wait for compile done
 + Ready to build release
-+ Key
++ Key below
 
 ```batch
 perl configure VC-WIN64A --prefix=D:\Qt\openssl\release no-asm
 ```
 
-+ Others same as debug
+Others same as debug
 
 ## Compile Qt Library
 
 + Open command prompt - `VS2012 x64 Native Tools Command Prompt`.
 
-Key (Go to directory) :
+Key below (Go to directory)
+
 ```batch
 CD/D D:\Qt\Qt\_5.6.1\_install\qt_adsk-5.6.1
 ```
 
-Key (Configure) :
+Key below (Configure)
+
 ```batch
 configure^
  -icu^
@@ -120,9 +124,8 @@ configure^
  -nomake tests
 ```
 
-Key (Do nmake) :
+Key below (Do nmake)
+
 ```batch
 nmake install
 ```
-
-## Done

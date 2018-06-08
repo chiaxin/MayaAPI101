@@ -1,8 +1,11 @@
 # How to write a Qt Gui in Maya API use Visual Studio
 
++ Visual Studio 2012
++ QT 5.6.1 for Maya 2017
+
 ## Step 0. Prepare libraries & tools
 
-### Step 0-1. Build Qt 5 library for Maya 2017
+### Step 0-1. Build Qt 5 libraries for Maya 2017
 
 + [The details please see this document](./build_qt5.6.1_Maya2017.md)
 
@@ -13,6 +16,10 @@
 ### Step 0-3. Setup Maya API environment & links
 
 + [The details please see this document](../vscpp_settings.md)
+
+or
+
++ [Setup by QMake](./build_Maya_API_with_QT_in_visual_studio.md)
 
 ## Step 1. Header file (mainwindow.h)
 
@@ -82,7 +89,7 @@ public:
 ### Step 1-3. Finally
 
 ```cpp
-#endif
+#endif /* mainwindow.h */
 ```
 
 ## Step 2. Implement (mainwindow.cpp)
@@ -90,16 +97,22 @@ public:
 ### Step 2-0. Include
 
 ```cpp
+// Custom
 #include "mainwondow.h"
-// In Windows, We need include Windows.h to avoid something error.
-#include <Windows.h>
-// Below is Qt libraries.
+
+// Windows
+#ifdef _WIN64
+    #include <Windows.h>
+#endif
+
+// Qt
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QPointer>
 #include <QDebug>
-// Below are Maya API include.
+
+// Maya
 #include <maya/MQtUtil.h>
 #include <maya/MGlobal.h>
 #include <maya/MDagPath.h>
@@ -118,7 +131,6 @@ const char * MainWindowCmd::kCmdName = "launchMainWindow";
 ```cpp
 QWidget * _GetMayaMainWindow()
 {
-    // Use MQtUtil::mainWindow
     QWidget * ptr_mainwindow = MQtUtil::mainWindow();
     return ptr_mainwindow;
 }
@@ -146,10 +158,12 @@ MainWindow::MainWindow(QWidget * parent):
         &MainWindow::execute
     );
 }
+
 // Destructor, do nothing.
 MainWindow::~MainWindow()
 {
 }
+
 // Simple execute member function
 void MainWindow::execute()
 {
@@ -163,19 +177,22 @@ void MainWindow::execute()
 ```cpp
 // Initialize QPointer in MayaWindowCmd
 QPointer<MainWindow> MainWindowCmd::qptr_mainwindow;
+
 // Constructor & Destructor do nothing.
 MainWindowCmd::MainWindowCmd()
 {
 }
-//
+
 MainWindowCmd::~MainWindowCmd()
 {
 }
+
 // The creator for Maya API
 void * MainwindowCmd::creator()
 {
     return new MainWindowCmd();
 }
+
 // The additional function to clean up MainWindow.
 void MainWindowCmd::cleanUp()
 {
@@ -184,15 +201,16 @@ void MainWindowCmd::cleanUp()
         delete qptr_mainwindow;
     }
 }
+
 // Do it member function.
 MStatus MainWindowCmd::doIt(const MArgList & argList)
 {
     // When qptr_mainwindow is not handle any QWidget address,
-    // We need to create a new class that is we made it before.
+    // we need to create a new class that is we made it before.
     // The constructor's first argument must to call _GetMayaMainWindow().
     // This custom window will be Maya's child.
     // If the class instance is exists, Just to raise it.
-    if ( qptr_mainwindow.isNull() )
+    if (qptr_mainwindow.isNull())
     {
         qptr_mainwindow = new MainWindow(_GetMayaMainWindow());
         qptr_mainwindow->show();
@@ -252,14 +270,6 @@ MStatus uninitializePlugin(MObject obj)
 }
 ```
 
-### Step 4. Compile, Loading in Maya, Launch
+### Step 4. Compile it, Loading in Maya, Launch
 
 ![loading_launch](../images/QT/loading_launch.PNG)
-
----
-
-## Additional
-
-+ I use Visual Studio 2012 community with QT5 (QT 5.6.1).
-+ This example just for 2017 or upper(Maya 2017 supported QT 5).
-+ This example is just in Windows OS.
