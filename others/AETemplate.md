@@ -11,7 +11,7 @@ You have to provide below two files :
 
 ## AE\<node-name>Template
 
-There need a proc call `AE\<node-name>Template`
+There need a proc called `AE<node-name>Template(string $nodeName)`
 
 `editorTemplate` is a command for control attribute editor ui.
 

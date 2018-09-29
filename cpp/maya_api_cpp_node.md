@@ -134,14 +134,14 @@ MStatus Custom::initialize()
     MFnNumericAttribute fnAttr;
     
     // Create attributes by MFnNumericAttribute::create().
-    moInput = fnAttr.create(kInputLN, kInputSN, 0.0, &stat);
+    moInput = fnAttr.create(kInputLN, kInputSN, MFnNumericData::kDouble, 0.0, &stat);
     if (stat != MS::kSuccess)
     {
         MGlobal::displayError("Failed to create attribute : " + kInputLN);
         return stat;
     }
     CHECK_MSTATUS_AND_RETURN_IT(make_input(fnAttr));
-    moOutput = fnAttr.create(kOutputLN, kOutputSN, 0.0, &stat);
+    moOutput = fnAttr.create(kOutputLN, kOutputSN, MFnNumericData::kDouble, 0.0, &stat);
     if (stat != MS::kSuccess)
     {
         MGlobal::displayError("Failed to create attribute : " + kOutputLN);

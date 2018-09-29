@@ -1,4 +1,4 @@
-# Create MAya API ICons
+# Create Maya API Icons
 
 The icon have place into Maya env `XBMLANGPATH`.
 

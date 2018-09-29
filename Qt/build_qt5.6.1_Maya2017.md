@@ -20,23 +20,26 @@
 + [Visual Studio 2012](https://www.visualstudio.com/vs/)
 + [Qt vs add-in 1.2.5](https://download.qt.io/official_releases/vsaddin/)
 + [Autodesk open source distribution](https://www.autodesk.com/company/legal-notices-trademarks/open-source-distribution)
-  Download : Qt561ForMaya2017Update4.zip
+  [Download] Qt561ForMaya2017Update4.zip
 + [ActivePerl 5](https://www.activestate.com/activeperl/downloads)
 + [Python 2.7](https://www.python.org/downloads/release/python-2713/)
 + [7 zip](http://www.7-zip.org/)
 + [ICU_53_1 msvc 2012 x64](http://download.qt.io/development_releases/prebuilt/icu/prebuilt/msvc2012/)
-  Download : icu\_53\_1\_msvc\_2012\_64\_devel.7z
+  [Download] icu\_53\_1\_msvc\_2012\_64\_devel.7z
 + [OpenSSL 1.0.1l](https://ftp.openssl.org/source/old/1.0.1/)
-  Download : openssl-1.0.1l.tar.gz
+  [Download] openssl-1.0.1l.tar.gz
 
 ## Required Folders
 
-+ Create a QT folder example as `D:\Qt`
-+ Create a folder example as `D:\Qt\Qt_5.6.1\msvc2012`
-+ Create a install folder example as `D:\Qt\Qt\_5.6.1_install`
+In this example, We would build sources in the D:\Qt
+
++ Create a QT folder as `D:\Qt`
++ Create a folder as `D:\Qt\Qt_5.6.1\Maya2017\msvc2012`
++ Create a install folder as `D:\Qt\install\Qt_5.6.1\Maya2017\msvc2012`  
++ Create a icu folder as `D:\Qt\install\icu53_1`
++ Create a openssl folder as `D:\Qt\openssl`
 + Uncompress `Qt561ForMaya2017Update4.zip` into install folder
-+ Uncompress icu\_53\_1\_msvc\_2012\_64\_devel.7z into `D:\Qt\icu53_1`
-+ Create a openssl folder, for example such as `D:\Qt\openssl`
++ Uncompress `icu\_53\_1\_msvc\_2012\_64\_devel.7z` into D:\Qt\icu53_1
 + Uncompress openssl-1.0.1l.tar.gz into `D:\Qt\openssl_install`
 
 ## Compile openSSL
