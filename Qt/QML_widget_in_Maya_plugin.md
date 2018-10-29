@@ -48,6 +48,7 @@ In header file
 
 class MyCustomCmd : public MPxCommand
 {
+public:
     // Implement...
     static MSyntax newSyntax();
     MStatus parseSyntax(const MArgList &);
@@ -87,11 +88,7 @@ MStatus MyCustomCmd::doIt(const MArgList & argList)
 {
     if (qp_viewer.isNull()) {
         qp_viewer = new QQuickView;
-        qp_viewer->setSource (
-            QUrl::fromLocalFile(
-                QStringLiteral(qml_path);
-            )
-        )
+        qp_viewer->setSource(QUrl::fromLocalFile(QStringLiteral(qml_path)));
     }
 }
 ```

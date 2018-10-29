@@ -6,17 +6,15 @@
 
 ## Download Resource
 
-PyQt :</br>
-[](http://www.riverbankcomputing.com/software/pyqt/download)
+[PyQt](http://www.riverbankcomputing.com/software/pyqt/download)
 
 Version : 5.7 (PyQt5-gpl-5.7.tar.gz)
 
-SIP :</br>
-[](http://www.riverbankcomputing.com/software/sip/download)
+[SIP](http://www.riverbankcomputing.com/software/sip/download)
 
 Version : 4.18.1 (sip-4.18.1.tar.gz)
 
-## Environment Setup Batch File
+## Batch File for Environment Setup
 
 ```bat
 @echo off
@@ -56,7 +54,7 @@ set INCLUDE=%INCLUDE%;%MAYA_LOCATION%\include\python2.7
 set LIB=%LIB%;%MAYA_LOCATION%\lib
 ```
 
-## Build SIP
+## Batch File for Build SIP
 
 build-sip-maya2017.bat
 
@@ -73,7 +71,7 @@ nmake install
 popd
 ```
 
-## Build PyQt
+## Batch File for Build PyQt
 
 build-pyqt5-maya2017.bat
 

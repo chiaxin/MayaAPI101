@@ -254,6 +254,8 @@ MStatus initializePlugin(MObject obj)
 
 ### Step 3-2. Uninitialize plug-in
 
+Call MainWindowCmd::cleanup clean gui pointer after deregister.
+
 ```cpp
 MStatus uninitializePlugin(MObject obj)
 {

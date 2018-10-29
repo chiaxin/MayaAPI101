@@ -1,4 +1,4 @@
-# How to build QT 5.6.1 for Maya 2017 (update 4) in Windows x64
+# How to build QT 5.6.1 for Maya 2018  (update 3) in Windows x64
 
 ## Reference
 
@@ -20,7 +20,7 @@
 + [Visual Studio 2012](https://www.visualstudio.com/vs/)
 + [Qt vs add-in 1.2.5](https://download.qt.io/official_releases/vsaddin/)
 + [Autodesk open source distribution](https://www.autodesk.com/company/legal-notices-trademarks/open-source-distribution)
-  Qt561ForMaya2017Update4.zip (Qt 5.6.1 modified for Maya 2017 Update 4)
+  Maya-Qt5.6.1-2018.3.tar (Qt 5.6.1 modified for Maya 2018 Update 3)
 + [ActivePerl 5](https://www.activestate.com/activeperl/downloads)
 + [Python 2.7](https://www.python.org/downloads/release/python-2713/)
 + [7 zip](http://www.7-zip.org/)

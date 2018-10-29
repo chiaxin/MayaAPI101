@@ -1,1 +1,0 @@
-# Python Maya Command Chapter 1
